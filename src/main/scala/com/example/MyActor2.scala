@@ -1,5 +1,18 @@
 package com.example
 
-class MyActor2 {
+import akka.actor.Actor
+import akka.event.Logging
+
+class MyActor2 extends Actor {
+  val log = Logging(context.system, this)
+
+  def receive = {
+    case s: String => {
+      log.info(s)
+      log.info(sender.toString)
+    }
+    case _ => {
+    }
+  }
 
 }
