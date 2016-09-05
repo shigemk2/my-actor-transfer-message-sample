@@ -11,11 +11,10 @@ class MyActor extends Actor {
   def receive = {
     case s: String => {
       log.info(s)
-      child.forward(s)
-      child ! s
+      child.forward(s) // 転送
+      child ! s // コピー送信
     }
     case _ => {
     }
   }
-
 }
