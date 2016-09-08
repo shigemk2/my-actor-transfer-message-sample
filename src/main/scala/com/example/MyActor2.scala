@@ -10,7 +10,7 @@ class MyActor2 extends Actor {
     case s: String => {
       log.info(s)
       // senderはメッセージの送り主のアクターを参照するものだから、メッセージの送り主のアクターがなかったらdead letter
-      log.info(sender.toString)
+      sender ! "You are lucky!"
     }
     case _ => {
     }
