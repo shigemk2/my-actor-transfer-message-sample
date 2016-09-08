@@ -9,6 +9,7 @@ class MyActor2 extends Actor {
   def receive = {
     case s: String => {
       log.info(s)
+      // senderはメッセージの送り主のアクターを参照するものだから、メッセージの送り主のアクターがなかったらdead letter
       log.info(sender.toString)
     }
     case _ => {
